@@ -16,10 +16,11 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Main.Launcher;
+import Tiles.Tile;
 import Utils.Handler;
 import Utils.KeyManager;
 
-public class Pnj implements Runnable {
+public class Pnj extends Entity implements Runnable {
 
 	int x;
 	int y;
@@ -40,7 +41,7 @@ public class Pnj implements Runnable {
 	//private Rect bounds for collision 
 	
 	public Pnj(int x,int y, int width, int height, Handler handler, String path){
-		
+		super(handler, x, y, width, height);
 		this.x = x;
 		this.y = y;
 		this.width = width;
@@ -227,9 +228,47 @@ public class Pnj implements Runnable {
 	public void move()
 	{
 		
+		if(xDirection > 0){ //moving right
+			int tx = (int) (x + xDirection + bounds.x + bounds.width) / Tile.TILEWIDTH; //gives the x coordinate of tile we are trying to move into
+			if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) && !collisionWithTile(tx, (int)(y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){ //first checking upper right corner then lower right corner of the box. if it's not solid, then we are good to move
+				x += xDirection;
+			}else{
+				x = tx * Tile.TILEWIDTH - bounds.x - bounds.width - 1;
+			}
+			
+		} else  if(xDirection < 0) { //moving left
+			int tx = (int) (x + xDirection + bounds.x) / Tile.TILEWIDTH; //gives the x coordinate of tile we are trying to move into
+			if(!collisionWithTile(tx, (int) (y + bounds.y) / Tile.TILEHEIGHT) && !collisionWithTile(tx, (int)(y + bounds.y + bounds.height) / Tile.TILEHEIGHT)){ //first checking upper right corner then lower right corner of the box. if it's not solid, then we are good to move
+				x += xDirection;
+			}else{
+			
+				x = tx * Tile.TILEWIDTH + Tile.TILEWIDTH -  bounds.x;
+			}
+		}
+		
 		//faire tous les cas x < 0 et y > 0. ...
-		x += xDirection;
-		y += yDirection;
+		
+		if(yDirection < 0) {//going up
+			int ty = (int) (y + yDirection + bounds.y) / Tile.TILEHEIGHT;
+			if(!collisionWithTile((int) (x + bounds.x)/ Tile.TILEWIDTH, ty) && !collisionWithTile((int) (x + bounds.x + bounds.width)/ Tile.TILEWIDTH, ty)){
+				y += yDirection;
+			}else{
+				y = ty * Tile.TILEHEIGHT + Tile.TILEHEIGHT - bounds.y;
+			}
+			
+		} else if(yDirection > 0){ //going down
+			int ty = (int) (y + yDirection + bounds.y + bounds.height) / Tile.TILEHEIGHT;
+			if(!collisionWithTile((int) (x + bounds.x)/ Tile.TILEWIDTH, ty) && !collisionWithTile((int) (x + bounds.x + bounds.width)/ Tile.TILEWIDTH, ty)){
+				y += yDirection;
+			}else{
+				y = ty * Tile.TILEHEIGHT - bounds.y - bounds.height - 1;
+			}
+		}
+		
+	}
+	
+	protected boolean collisionWithTile(int x, int y){
+		return handler.getWorld().getTile(x, y).isSolid();
 	}
 
 	@Override
@@ -266,6 +305,12 @@ public class Pnj implements Runnable {
 				System.err.println((e.getMessage()));
 		}
 		
+		
+	}
+
+	@Override
+	public void render(Graphics g) {
+		// TODO Auto-generated method stub
 		
 	}
 

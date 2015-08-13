@@ -57,7 +57,10 @@ public class GameState extends State {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} //would add "path" if we had to
+		} 
+		
+		
+		//would add "path" if we had to
 		
 		//for now
 		//Tile.tiles[0].render(g, 0, 0);  // we can access cause static

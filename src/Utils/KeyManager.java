@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 public class KeyManager implements KeyListener{
 
 	private boolean[] keys;
-	public boolean up, down, left, right, enter;
+	public boolean up, down, left, right, enter, inv;
 	private boolean enterIsPressed = false;
 	
 	//constructor
@@ -22,6 +22,7 @@ public class KeyManager implements KeyListener{
 		left = keys[KeyEvent.VK_Q];
 		right = keys[KeyEvent.VK_D];
 		enter = keys[KeyEvent.VK_ENTER];
+		inv = keys[KeyEvent.VK_UP];
 	}
 
 

@@ -12,11 +12,11 @@ public class Assets {
 	
 
 	
-	static LinkedList<BufferedImage> tabUp = new LinkedList<BufferedImage>();
+	/*static LinkedList<BufferedImage> tabUp = new LinkedList<BufferedImage>();
 	static LinkedList<BufferedImage> tabDown = new LinkedList<BufferedImage>();
 	static LinkedList<BufferedImage> tabLeft = new LinkedList<BufferedImage>();
 	static LinkedList<BufferedImage> tabRight = new LinkedList<BufferedImage>();
-	
+	*/
 	public static void init(){
 		
 		SpriteSheet sheet = new SpriteSheet(ImageLoader.loadImage("/textures/perso.png"));
@@ -35,7 +35,7 @@ public class Assets {
 		right3 = sheet.crop((2 * width), (2 * width), width, height);
 		behind3 = sheet.crop((2 * width), (3 * width), width, height);
 		
-		
+		/*
 		tabUp.add(behind1);
 		tabUp.add(behind2);
 		tabUp.add(behind3);
@@ -51,7 +51,7 @@ public class Assets {
 		tabRight.add(right1);
 		tabRight.add(right2);
 		tabRight.add(right3);
-		
+		*/
 		SpriteSheet sheetTiles = new SpriteSheet(ImageLoader.loadImage("/textures/tilea2.png"));
 		regular = sheetTiles.crop(0, width, 2*width, 2*width);
 		grass = sheetTiles.crop(64, 128, 2*width, 2*width);
