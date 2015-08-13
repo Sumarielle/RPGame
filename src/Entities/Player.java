@@ -79,85 +79,101 @@ public class Player extends Creature {
 	
 		if(handler.getKeyManager().down){
 			lastPos = 0; //en mettre un dans chaque elseif serait peut etre plus réaliste
-			if(t < 20)
+			if(t < 10)
 			{
 				g.drawImage(Assets.face1, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 20)
+			{
+				g.drawImage(Assets.face2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 30)
+			{
+				g.drawImage(Assets.face3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			else if(t < 40)
 			{
 				g.drawImage(Assets.face2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
-			else if(t < 60)
-			{
-				g.drawImage(Assets.face3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-			}
 			else
 			{
 				t = 0;
-				g.drawImage(Assets.face3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+				g.drawImage(Assets.face2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			t++;
 		}
 		else if(handler.getKeyManager().up){
 			lastPos = 1;
-			if(t < 20)
+			if(t < 10)
 			{
 				g.drawImage(Assets.behind1, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 20)
+			{
+				g.drawImage(Assets.behind2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 30)
+			{
+				g.drawImage(Assets.behind3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			else if(t < 40)
 			{
 				g.drawImage(Assets.behind2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
-			else if(t < 60)
-			{
-				g.drawImage(Assets.behind3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-			}
 			else
 			{
 				t = 0;
-				g.drawImage(Assets.behind3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+				g.drawImage(Assets.behind2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			t++;
 		}
 		else if(handler.getKeyManager().left){
 			lastPos = 2;
-			if(t < 20)
+			if(t < 10)
 			{
 				g.drawImage(Assets.left1, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 20)
+			{
+				g.drawImage(Assets.left2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 30)
+			{
+				g.drawImage(Assets.left3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			else if(t < 40)
 			{
 				g.drawImage(Assets.left2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
-			else if(t < 60)
-			{
-				g.drawImage(Assets.left3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-			}
 			else
 			{
 				t = 0;
-				g.drawImage(Assets.left3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+				g.drawImage(Assets.left2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			t++;
 		}
 		else if(handler.getKeyManager().right){
 			lastPos = 3;
-			if(t < 20)
+			if(t < 10)
 			{
 				g.drawImage(Assets.right1, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 20)
+			{
+				g.drawImage(Assets.right2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+			}
+			else if(t < 30)
+			{
+				g.drawImage(Assets.right3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			else if(t < 40)
 			{
 				g.drawImage(Assets.right2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
-			else if(t < 60)
-			{
-				g.drawImage(Assets.right3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
-			}
 			else
 			{
 				t = 0;
-				g.drawImage(Assets.right3, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
+				g.drawImage(Assets.right2, (int) (x - handler.getGameCamera().getxOffset()), (int) (y - handler.getGameCamera().getyOffset()), width, height, null);
 			}
 			t++;
 		}
