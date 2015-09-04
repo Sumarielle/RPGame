@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import Assets.Assets;
 import Assets.ItemsAssets;
+import Gameplay.Inventory;
 import Utils.Handler;
 
 
@@ -17,6 +18,8 @@ public class Player extends Creature {
 	private int u = 0;
 	
 	private boolean inventoryToDisplay = false;
+	
+	
 	
 	
 	
@@ -202,11 +205,6 @@ public class Player extends Creature {
 	public void render(Graphics g){
 		Animation(g);
 		
-		if(inventoryToDisplay){
-			g.drawImage(ItemsAssets.inventory, 0, 0, null);
-			g.drawImage(ItemsAssets.fruit, 210, 206, 238, 234, null);
-			System.out.println("L'inventaire est là");
-		}
 		//pour avoir un rectangle de collision visible
 		/*
 		g.setColor(Color.red);
@@ -243,6 +241,8 @@ public class Player extends Creature {
 		return enterIsTouched == 1;
 	}
 	
-	
+	public boolean shouldDisplayInventory(){
+		return(handler.getKeyManager().inv); 
+	}
 	
 }

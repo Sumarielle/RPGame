@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 
 import Entities.Player;
 import Entities.Pnj;
+import Gameplay.Inventory;
 import LevelDesign.World;
 import Utils.Handler;
 import Utils.KeyManager;
@@ -19,13 +20,14 @@ public class GameState extends State {
 	private Player player;//test
 	private World world; //test
 	private KeyManager km;
-	
+//	private Inventory inventory;
 
-	public GameState(Handler handler){
+	public GameState(Handler handler) throws IOException{
 		super(handler);
 		world = new World(handler, "res/worlds/world1.txt"); //test
 		handler.setWorld(world); //order is important. The variable world in Handler class is set to whatever we give it - here world
 		player = new Player(handler, 250, 150); //test
+		//inventory = new Inventory();
 		pnj = new Pnj(500, 500, 64, 64, handler, "res/pnj/essai1.xml");
 		pnj.start();
 		pnj2 = new Pnj(300, 300, 32, 32, handler, "res/pnj/essai2.xml");
@@ -35,7 +37,7 @@ public class GameState extends State {
 	public void tick(){
 		world.tick();//test
 		player.tick();//test
-		
+		//inventory.tick();
 		
 	}
 	// int x = 0;
@@ -59,6 +61,8 @@ public class GameState extends State {
 			e.printStackTrace();
 		} 
 		
+		
+		//inventory.draw(g);
 		
 		//would add "path" if we had to
 		

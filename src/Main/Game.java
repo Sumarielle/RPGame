@@ -1,6 +1,7 @@
 package Main;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.io.IOException;
 
 import Assets.Assets;
 import GameStateManager.GameState;
@@ -46,7 +47,7 @@ public class Game implements Runnable {
 		keyManager = new KeyManager();
 	}
 	
-	private void init(){
+	private void init() throws IOException{
 		display = new Display(title, width, height);
 		display.getFrame().addKeyListener(keyManager); //add a keyListener
 		Assets.init();
@@ -99,7 +100,14 @@ public class Game implements Runnable {
 	}
 	
 	public void run() {
-		init();
+		
+		// A CAUSE DE L INVENTAIRE, TRY AND CATCH. ET plus bas, un throw
+		try {
+			init();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//temp fps
 		int fps = 60;
 		double timePerTick = 1000000000 / fps; //nano seconds --> 1 sec hehe
